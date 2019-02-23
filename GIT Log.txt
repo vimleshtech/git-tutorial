@@ -1,0 +1,674 @@
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~
+$ git "C:\Users\vkumar15\Documents\GitHub\myproject"
+git: 'C:\Users\vkumar15\Documents\GitHub\myproject' is not a git command. See 'g                                                                                                                                  it --help'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~
+$ cd "C:\Users\vkumar15\Documents\GitHub\myproject"
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   test.txt
+        new file:   test1.txt
+
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "test"
+[master (root-commit) 8bea79d] test
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+ create mode 100644 test1.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git log
+commit 8bea79d4e2f0c0f2e9d3aed44c34859b6a01ac53 (HEAD -> master)
+Author: vimleshtech <35063663+vimleshtech@users.noreply.github.com>
+Date:   Fri Jan 19 12:29:13 2018 -0600
+
+    test
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch
+* master
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add branch msoffice
+fatal: pathspec 'branch' did not match any files
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch
+* master
+  testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git checkout branch
+error: pathspec 'branch' did not match any file(s) known to git.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git checkout testing
+Switched to branch 'testing'
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git branch
+  master
+* testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ touch branch2.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git add -A
+g
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   branch2.txt
+
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git commit -a -m 'made a change'
+[testing 12c4296] made a change
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 branch2.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+nothing to commit, working tree clean
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git log
+commit 12c42966c90e4bf8d2a0580393642931158ec3b2 (HEAD -> testing)
+Author: vimleshtech <35063663+vimleshtech@users.noreply.github.com>
+Date:   Fri Jan 19 12:33:21 2018 -0600
+
+    made a change
+
+commit 8bea79d4e2f0c0f2e9d3aed44c34859b6a01ac53 (master)
+Author: vimleshtech <35063663+vimleshtech@users.noreply.github.com>
+Date:   Fri Jan 19 12:29:13 2018 -0600
+
+    test
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git checkout master
+Switched to branch 'master'
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch
+* master
+  testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ touch branch2.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        branch2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git brach -d testing
+git: 'brach' is not a git command. See 'git --help'.
+
+The most similar command is
+        branch
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch -d testing
+error: The branch 'testing' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D testing'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch -D testing
+Deleted branch testing (was 12c4296).
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch
+* master
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch -v
+* master 8bea79d test
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git  branch --merged
+* master
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git remote add origin https://github.com/vimleshtech/mynewrepository.git
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u origin master
+Username for 'https://github.com': vimlesh@techvisionit.com
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/vimleshtech/mynewrepository                                                                                                                                  .git/'
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git --help
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git remote add origin https://github.com/vimleshtech/mynewrepository.git
+fatal: remote origin already exists.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git remote add norigin https://github.com/vimleshtech/mynewrepository.git
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u norigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 225 bytes | 7.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/vimleshtech/mynewrepository.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'norigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+Your branch is up to date with 'norigin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        Jan20/
+        Java 20th jan.txt
+        branch2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -a
+error: unknown switch `a'
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --dry-run         dry run
+    -v, --verbose         be verbose
+
+    -i, --interactive     interactive picking
+    -p, --patch           select hunks interactively
+    -e, --edit            edit current diff and apply
+    -f, --force           allow adding otherwise ignored files
+    -u, --update          update tracked files
+    -N, --intent-to-add   record only the fact that the path will be added later
+    -A, --all             add changes from all tracked and untracked files
+    --ignore-removal      ignore paths removed in the working tree (same as --no-all)
+    --refresh             don't add, only refresh the index
+    --ignore-errors       just skip files which cannot be added because of errors
+    --ignore-missing      check if - even missing - files are ignored in dry run
+    --chmod <(+/-)x>      override the executable bit of the listed files
+
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "java session 20th jan"
+[master 1e148ef] java session 20th jan
+ 13 files changed, 290 insertions(+)
+ create mode 100644 Jan20/.classpath
+ create mode 100644 Jan20/.project
+ create mode 100644 Jan20/.settings/org.eclipse.jdt.core.prefs
+ create mode 100644 Jan20/bin/ExceptionHandler/ExceptionEx.class
+ create mode 100644 Jan20/bin/ExceptionHandler/nestedTryCatch.class
+ create mode 100644 Jan20/bin/ExceptionHandler/throwsEx.class
+ create mode 100644 Jan20/bin/pkgIO/startup.class
+ create mode 100644 Jan20/src/ExceptionHandler/ExceptionEx.java
+ create mode 100644 Jan20/src/ExceptionHandler/nestedTryCatch.java
+ create mode 100644 Jan20/src/ExceptionHandler/throwsEx.java
+ create mode 100644 Jan20/src/pkgIO/startup.java
+ create mode 100644 Java 20th jan.txt
+ create mode 100644 branch2.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u norigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 22, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (22/22), 6.21 KiB | 132.00 KiB/s, done.
+Total 22 (delta 0), reused 0 (delta 0)
+To https://github.com/vimleshtech/mynewrepository.git
+   8bea79d..1e148ef  master -> master
+Branch 'master' set up to track remote branch 'master' from 'norigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch
+* master
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch
+* master
+  testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git checkout testing
+Switched to branch 'testing'
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git branch
+  master
+* testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ touch abcd.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        abcd.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   abcd.txt
+
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git reset abcd.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        abcd.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git commit -m "test commig"
+[testing ea2da13] test commig
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 abcd.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+nothing to commit, working tree clean
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git log
+commit ea2da139759a01d8741dda7db317cad8d8e43c8c (HEAD -> testing)
+Author: vimleshtech <35063663+vimleshtech@users.noreply.github.com>
+Date:   Sat Jan 20 02:52:38 2018 -0600
+
+    test commig
+
+commit 1e148efcbc85585ad6eaaa177a5bb73774a1b56b (norigin/master, master)
+Author: vimleshtech <35063663+vimleshtech@users.noreply.github.com>
+Date:   Sat Jan 20 01:42:42 2018 -0600
+
+    java session 20th jan
+
+commit 8bea79d4e2f0c0f2e9d3aed44c34859b6a01ac53
+Author: vimleshtech <35063663+vimleshtech@users.noreply.github.com>
+Date:   Fri Jan 19 12:29:13 2018 -0600
+
+    test
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   abcd.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git diff
+diff --git a/abcd.txt b/abcd.txt
+index e69de29..86e4d0c 100644
+--- a/abcd.txt
++++ b/abcd.txt
+@@ -0,0 +1,5 @@
++hi
++hello
++1
++2
++bye
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   abcd.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git commit -m "modified"
+[testing deef1af] modified
+ 1 file changed, 5 insertions(+)
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git satus
+git: 'satus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git status
+On branch testing
+nothing to commit, working tree clean
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git branch
+  master
+* testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (testing)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'norigin/master'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git branch
+* master
+  testing
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ touch newfiel.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "add file1.txt
+> "
+[master c44c7fb] add file1.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 newfiel.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git remote add torigin https://github.com/vimleshtech/mynewrepository.git
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 2, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 250 bytes | 7.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vimleshtech/mynewrepository.git
+   1e148ef..c44c7fb  master -> master
+Branch 'master' set up to track remote branch 'master' from 'torigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+Your branch is up to date with 'torigin/master'.
+
+nothing to commit, working tree clean
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ ls
+ branch2.txt   Jan20/  'Java 20th jan.txt'   newfiel.txt   test.txt   test1.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+Your branch is up to date with 'torigin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        LatestFile.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+Your branch is up to date with 'torigin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   LatestFile.txt
+
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "latest file commit"
+[master 386308f] latest file commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 LatestFile.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git status
+On branch master
+Your branch is ahead of 'torigin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisioit.com
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/vimleshtech/mynewrepository.git/'
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 2, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 258 bytes | 7.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vimleshtech/mynewrepository.git
+   c44c7fb..386308f  master -> master
+Branch 'master' set up to track remote branch 'master' from 'torigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "latest file add "
+[master 630d121] latest file add
+ 1 file changed, 1 insertion(+)
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisinoit.com
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/vimleshtech/mynewrepository.git/'
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "git notes"
+[master 55a8445] git notes
+ 1 file changed, 331 insertions(+)
+ create mode 100644 GIT.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 4.71 KiB | 146.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/vimleshtech/mynewrepository.git
+   386308f..55a8445  master -> master
+Branch 'master' set up to track remote branch 'master' from 'torigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "python 20th jan"
+[master 182893e] python 20th jan
+ 6 files changed, 223 insertions(+)
+ create mode 100644 Python 20 Jan/Python Session-2.txt
+ create mode 100644 Python 20 Jan/arr_sub.py
+ create mode 100644 Python 20 Jan/listExample.py
+ create mode 100644 Python 20 Jan/loopEx.py
+ create mode 100644 Python 20 Jan/number_repeatition.py
+ create mode 100644 Python 20 Jan/sum_avg_loop.py
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 1.77 KiB | 49.00 KiB/s, done.
+Total 9 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vimleshtech/mynewrepository.git
+   55a8445..182893e  master -> master
+Branch 'master' set up to track remote branch 'master' from 'torigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "sql session 21st"
+[master 63c3f10] sql session 21st
+ 1 file changed, 65 insertions(+)
+ create mode 100644 SQL 21st Jan/sql session.txt
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 726 bytes | 20.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vimleshtech/mynewrepository.git
+   182893e..63c3f10  master -> master
+Branch 'master' set up to track remote branch 'master' from 'torigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git add -A
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git commit -m "python session 21st jan"
+[master da96149] python session 21st jan
+ 3 files changed, 86 insertions(+)
+ create mode 100644 Python 21st Jan/crud.py
+ create mode 100644 Python 21st Jan/maxdata.py
+ create mode 100644 Python 21st Jan/myscript.py
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
+$ git push -u torigin master
+Username for 'https://github.com': raman@techvisionit.com
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 1.04 KiB | 28.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vimleshtech/mynewrepository.git
+   63c3f10..da96149  master -> master
+Branch 'master' set up to track remote branch 'master' from 'torigin'.
+
+vkumar15@LH7U05CG7300QJQ MINGW64 ~/Documents/GitHub/myproject (master)
