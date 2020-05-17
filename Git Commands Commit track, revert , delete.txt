@@ -1,0 +1,146 @@
+Today's Topics
+-----------------------
+git init
+git status
+git add .
+git reset <filename>    --remove file from stage 
+git diff <filenaem>	--diff between prev and new version 
+
+git branch	: default branch is master 
+	- show list of existing branch
+	git branch
+	- create new branch
+	git branch branchname
+	- checkout branch
+	git checkout test 
+
+	- merge branch 
+	 --chekout the branch in which branch you need to merge the other 		branch
+	 git checkout master
+	 git merge test 
+	- push branch 
+
+track log
+rollback : revert 
+remove file, and folder
+resolve the conflict
+diff between clone and pull
+		git clone https://  --download complete repository 
+		git pull https://    --download the changes 
+rebase 
+
+
+Show list of files in particular commits:
+-------------------------------------------------
+git show
+
+git show 981f503841362fa748ec4b8215248a98e4db139b	
+git show  --name-only 981f503841362fa748ec4b8215248a98e4db139b
+git show --pretty="" --name-only 981f503841362fa748ec4b8215248a98e4db139b
+
+last commit with show files name and file status modify,create or delete
+-------------------------------------------------
+$git log -1 --oneline --name-status
+	A : add 
+	D : delete
+	M : modify
+
+
+List the files difference in two commits:
+-------------------------------------------------
+	git diff --name-only SHA1  SHA2
+
+show content of file
+----------------------------------
+	cat filename.txt
+
+
+To delete file from git hub repository you must follow three steps.
+----------------------------------
+	git rm -r   : folder	-remove from local
+	git rm      : file 	-reove from local 
+		--then commit and push -then remove local and repo
+
+	git rm --cached -r	--remove from repo only
+	git rm --cached 	--remove from repo only
+
+
+-Remove file in local repository (working directory)
+-Commit your changes
+-Push your changes to remote git repository(github)
+
+The rm -r command will recursively remove your folder:
+	git rm -r folder-name
+Commit the change:
+	git commit -m "Remove duplicated directory"
+Push the change to your remote repository:
+	git push origin master
+
+
+
+----remove file or folder from repo but not from local
+So, for a single file:
+
+	git rm --cached mylogfile.log
+
+and for a single directory:
+
+	git rm --cached -r mydirectory
+
+
+---git remove untracked files
+
+If you want to see which files will be deleted you can use the -n option before you run the actual command:
+
+	git clean -n   --show list of files which will be removed 
+
+Then when you are comfortable (because it will delete the files for real!) use the -f option:
+
+	git clean -f
+Here are some more options for you to delete directories, files, ignored and non-ignored files
+
+-To remove directories, run git clean -f -d or git clean -fd
+-To remove ignored files, run git clean -f -X or git clean -fX
+-To remove ignored and non-ignored files, run git clean -f -x or git clean -fx
+
+--revert to base/first commit
+git rebase 
+
+
+Questions
+===============
+How do you revert a commit that has already been pushed and made public?
+
+One or more commits can be reverted through the use of git revert. This command, in essence, creates a new commit with patches that cancel out the changes introduced in specific commits. In case the commit that needs to be reverted has already been published or changing the repository history is not an option, git revert can be used to revert commits. Running the following command will revert the last two commits:
+
+git revert HEAD~5..HEAD
+
+Alternatively, one can always checkout the state of a particular commit from the past, and commit it anew.
+
+
+How do you squash last N commits into a single commit?
+
+
+Squashing multiple commits into a single commit will overwrite history, and should be done with caution. However, this is useful when working in feature branches. To squash the last N commits of the current branch, run the following command (with {N} replaced with the number of commits that you want to squash):
+
+git rebase -i HEAD~{N}
+Upon running this command, an editor will open with a list of these N commit messages, one per line. Each of these lines will begin with the word “pick”. Replacing “pick” with “squash” or “s” will tell Git to combine the commit with the commit before it. To combine all N commits into one, set every commit in the list to be squash except the first one. Upon exiting the editor, and if no conflict arises, git rebase will allow you to create a new commit message for the 
+new combined commit.
+
+
+
+
+Q. create new repository the create two branches
+========================
+Q. commit few files in both the brnaches
+ commit both the branches  to github
+
+Q. remove the file from local and remove the same file from git repository
+Q. remove the folder from location and same folder from git repository
+Q. clone the files on another machine
+Q. add new file to github from old machine
+Q. pull the new changes 
+
+
+
+

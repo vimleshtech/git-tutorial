@@ -1,0 +1,251 @@
+
+Show list of files in particular commits:
+-------------------------------------------------
+git show
+
+git show 981f503841362fa748ec4b8215248a98e4db139b
+git show  --name-only 981f503841362fa748ec4b8215248a98e4db139b
+git show --pretty="" --name-only 981f503841362fa748ec4b8215248a98e4db139b
+
+last commit with show files name and file status modify,create or delete
+-------------------------------------------------
+ 	git log -1 --oneline --name-status
+	A : add 
+	D : delete
+	M : modify
+
+
+List the files difference in two commits:
+-------------------------------------------------
+	git diff --name-only SHA1  SHA2
+
+
+show content of file
+----------------------------------
+	cat filename.txt
+
+
+To delete file from git hub repository you must follow three steps.
+----------------------------------
+	git rm -r   : folder	-remove from local
+	git rm      : file 	-reove from local 
+		--then commit and push -then remove local and repo
+
+	git rm --cached -r	--remove from repo only
+	git rm --cached 	--remove from repo only
+
+
+-Remove file in local repository (working directory)
+-Commit your changes
+-Push your changes to remote git repository(github)
+
+The rm -r command will recursively remove your folder:
+	git rm -r folder-name
+Commit the change:
+	git commit -m "Remove duplicated directory"
+Push the change to your remote repository:
+	git push origin master
+
+
+
+----remove file or folder from repo but not from local
+So, for a single file:
+
+	git rm --cached mylogfile.log
+
+and for a single directory:
+
+	git rm --cached -r mydirectory
+
+
+---git remove untracked files
+
+If you want to see which files will be deleted you can use the -n option before you run the actual command:
+
+	git clean -n   --show list of files which will be removed 
+
+Then when you are comfortable (because it will delete the files for real!) use the -f option:
+
+	git clean -f
+Here are some more options for you to delete directories, files, ignored and non-ignored files
+
+-To remove directories, run git clean -f -d or git clean -fd
+-To remove ignored files, run git clean -f -X or git clean -fX
+-To remove ignored and non-ignored files, run git clean -f -x or git clean -fx
+
+--revert to base/first commit
+git rebase 
+
+
+Questions
+===============
+How do you revert a commit that has already been pushed and made public?
+
+One or more commits can be reverted through the use of git revert. This command, in essence, creates a new commit with patches that cancel out the changes introduced in specific commits. In case the commit that needs to be reverted has already been published or changing the repository history is not an option, git revert can be used to revert commits. Running the following command will revert the last two commits:
+
+git revert HEAD~5..HEAD
+
+Alternatively, one can always checkout the state of a particular commit from the past, and commit it anew.
+
+
+How do you squash last N commits into a single commit?
+
+
+Squashing multiple commits into a single commit will overwrite history, and should be done with caution. However, this is useful when working in feature branches. To squash the last N commits of the current branch, run the following command (with {N} replaced with the number of commits that you want to squash):
+
+git rebase -i HEAD~{N}
+Upon running this command, an editor will open with a list of these N commit messages, one per line. Each of these lines will begin with the word “pick”. Replacing “pick” with “squash” or “s” will tell Git to combine the commit with the commit before it. To combine all N commits into one, set every commit in the list to be squash except the first one. Upon exiting the editor, and if no conflict arises, git rebase will allow you to create a new commit message for the 
+new combined commit.
+
+
+
+
+How do you find a list of files that has changed in a particular commit?
+
+git diff-tree -r {hash}
+Given the commit hash, this will list all the files that were changed or added in that commit. The -r flag makes the command list individual files, rather than collapsing them into root directory names only.
+
+The output will also include some extra information, which can be easily suppressed by including a couple of flags:
+
+git diff-tree --no-commit-id --name-only -r {hash}
+Here --no-commit-id will supress the commit hashes from appearing in the output, and --name-only will only print the file names, instead of their paths.
+
+
+What is git bisect? How can you use it to determine the source of a (regression) bug?
+
+
+
+Git provides a rather efficient mechanism to find bad commits. Instead of making the user try out every single commit to find out the first one that introduced some particular issue into the code, git bisect allows the user to perform a sort of binary search on the entire history of a repository.
+
+By issuing the command git bisect start, the repository enters bisect mode. After this, all you have to do is identify a bad and a good commit:
+
+git bisect bad # marks the current version as bad
+git bisect good {hash or tag} # marks the given hash or tag as good, ideally of some earlier commit
+Once this is done, Git will then have a range of commits that it needs to explore. At every step, it will checkout a certain commit from this range, and require you to identify it as good or bad. After which the range will be effectively halved, and the whole search will require a lot less number of steps than the actual number of commits involved in the range. Once the first bad commit has been found, or the bisect mode needs to be ended, the following command can be used to exit the mode and reset the bisection state:
+
+git bisect reset
+
+
+
+What is git rebase and how can it be used to resolve conflicts in a feature branch before merge?
+In simple words, git rebase allows one to move the first commit of a branch to a new starting location. For example, if a feature branch was created from master, and since then the master branch has received new commits, git rebase can be used to move the feature branch to the tip of master. The command effectively will replay the changes made in the feature branch at the tip of master, allowing conflicts to be resolved in the process. When done with care, this will allow the feature branch to be merged into master with relative ease and sometimes as a simple fast-forward operation.
+
+
+
+How can you copy a commit made in one branch to another (e.g. a hot fix commit from released branch to current development branch)?
+
+
+
+
+You need to use the cherry-pick command. It provides the possibility to play back an existing commit to your current location/branch. So you need to switch to the target branch (e.g. git checkout development) and call git cherry-pick {hash of that commit}.
+
+In spite of applying the same changes, it will be a new commit with a new hash because the changes are applied to a different destination.
+
+
+How do you cherry-pick a merge commit?
+
+
+Cherry-pick uses a diff to find the difference between branches.
+
+As a merge commit belongs to a different branch, it has two parents and two changesets.
+
+For example, if you have merge commt ref 63ad84c, you have to specify -m and use parent 1 as a base:
+
+git checkout release_branch
+git cherry-pick -m 1 63ad84c
+
+
+What is the difference between git pull and git fetch?
+
+git fetch only downloads new data from a remote repository, but it doesn’t integrate any of the downloaded data into your working files. All it does is provide a view of this data.
+
+git pull downloads as well as merges the data from a remote repository into your local working files. It may also lead to merge conflicts if your local changes are not yet committed. Use the git stash command to hide your local changes.
+
+
+What is a conflict in git and how can it be resolved?
+
+A conflict arises when more than one commit that has to be merged has some change in the same place or same line of code. Git will not be able to predict which change should take precedence. This is a git conflict.
+
+To resolve the conflict in git, edit the files to fix the conflicting changes and then add the resolved files by running git add. After that, to commit the repaired merge, run git commit. Git remembers that you are in the middle of a merge, so it sets the parents of the commit correctly.
+
+
+
+What is GIT stash?
+
+GIT stash takes the current state of the working directory and index and puts in on the stack for later and gives you back a clean working directory.  So in case if you are in the middle of something and need to jump over to the other job, and at the same time you don’t want to lose your current edits then you can use GIT stash.
+
+11)   What is GIT stash drop?
+
+When you are done with the stashed item or want to remove it from the list, run the git ‘stash drop’ command.  It will remove the last added stash item by default, and it can also remove a specific item if you include as an argument.
+
+12)   How will you know in GIT if a branch has been already merged into master?
+
+Git branch—merged lists the branches that have been merged into the current branch
+
+Git branch—-no merged lists the branches that have not been merged
+
+
+ What is the function of ‘git config’?
+
+The ‘git config’ command is a convenient way to set configuration options for your Git installation.  Behaviour of a repository, user info, preferences etc. can be defined through this command.
+
+15)   What does commit object contain?
+
+a)      A set of files, representing the state of a project at a given point of time
+
+b)      Reference to parent commit objects
+
+c)       An SHAI name, a 40 character string that uniquely identifies the commit object.
+
+
+
+
+
+What is ‘head’ in git and how many heads can be created in a repository?
+
+A ‘head’ is simply a reference to a commit object. In every repository, there is a default head referred as “Master”.  A repository can contain any number of heads.
+
+18)   What is the purpose of branching in GIT?
+
+The purpose of branching in GIT is that you can create your own branch and jump between those branches. It will allow you to go to your previous work keeping your recent work intact.
+
+19)   What is the common branching pattern in GIT?
+
+The common way of creating branch in GIT is to maintain one as “Main“
+
+branch and create another branch to implement new features. This pattern is particularly useful when there are multiple developers working on a single project.
+
+20)   How can you bring a new feature in the main branch?
+
+To bring a new feature in the main branch, you can use a command “git merge” or “git pull command”.
+
+21)   What is a ‘conflict’ in git?
+
+A ‘conflict’ arises when the commit that has to be merged has some change in one place, and the current commit also has a change at the same place. Git will not be able to predict which change should take precedence.
+
+22)   How can conflict in git resolved?
+
+To resolve the conflict in git, edit the files to fix the conflicting changes and then add the resolved files by running “git add” after that to commit the repaired merge,  run “git commit”.  Git remembers that you are in the middle of a merger, so it sets the parents of the commit correctly.
+
+23)   To delete a branch what is the command that is used?
+
+Once your development branch is merged into the main branch, you don’t need
+
+development branch.  To delete a branch use, the command “git branch –d [head]”.
+
+24)   What is another option for merging in git?
+
+“Rebasing” is an alternative to merging in git.
+
+25)   What is the syntax for “Rebasing” in Git?
+
+The syntax used for rebase is “git rebase [new-commit] “
+
+
+43)   How can you fix a broken commit?
+
+To fix any broken commit, you will use the command “git commit—amend”. By running this command, you can fix the broken commit message in the editor.
+
+
+
+
